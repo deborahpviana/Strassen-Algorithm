@@ -11,6 +11,3 @@ def read_file(path):
     interval.append(int(element))
 
   return k_max, r, interval
-
-
-

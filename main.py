@@ -73,4 +73,3 @@ plot_graph(k_max,
   [x/r for x in avgs_time_naive],
   [x/r for x in avgs_time_strassen],
   [x/r for x in avgs_time_hybrid_strassen])
-

@@ -19,4 +19,3 @@ def matrix_mult(matrix_a, matrix_b):
     matrix_c.append(c_line.copy())
 
   return np.array(matrix_c)
-
