@@ -29,3 +29,7 @@ Para executar o código adicione o caminho para o arquivo input ao final do coma
 ```
 python /home/user/documentos/Strassen-Algorithm/main.py ./input.txt
 ```
+
+## Observações
+
+Numa tentativa de otimizar o tempo de execução do código na `branch` `hotfix/using-list-comprehensions` alguns loops e construções de matrizes foram substituidas por listas de compressão ou *list comprehensions*. Porém depois de alguns testes nenhuma melhora significativa foi observada.
