@@ -9,7 +9,6 @@ from matrix_mult import matrix_mult
 from strassen import *
 
 path = sys.argv[1]
-
 k_max, r, interval = read_file(path)
 
 avgs_time_naive = []
@@ -26,7 +25,7 @@ def plot_graph(k_max, avg_naive, avg_strassen, avg_hybrid_strassen):
   a.legend()
   plt.show()
 
-# O k_max das matrízes é dada por k = 5
+# O k_max das matrízes é dada por no mínimo k = 5
 for order in range(1, k_max + 1):
     # n -> dimensões da matrix nxn
     n = 2 ** order
@@ -38,8 +37,7 @@ for order in range(1, k_max + 1):
     avg_time_strassen = 0
     avg_time_hybrid_strassen = 0
 
-    # r -> quantidade de matrizes que serão geradas
-    # e multiplicadas
+    # r -> quantidade de matrizes que serão geradas e multiplicadas
     for i in range(0, r):
       matrix_a, matrix_b = matrix_generator(n, interval)
 
@@ -67,7 +65,8 @@ for order in range(1, k_max + 1):
     avgs_time_naive.append(avg_time_naive)
     avgs_time_strassen.append(avg_time_strassen)
     avgs_time_hybrid_strassen.append(avg_time_hybrid_strassen)
-    print('media order 2^{} -> strassen: {} \thybrid: {} \tnaive: {}'.format(order, avg_time_strassen, avg_time_hybrid_strassen, avg_time_naive))
+    print('media order 2^{} -> strassen: {} \thybrid: {} \tnaive: {}'.format(
+      order, avg_time_strassen, avg_time_hybrid_strassen, avg_time_naive))
 
 plot_graph(k_max,
   [x/r for x in avgs_time_naive],

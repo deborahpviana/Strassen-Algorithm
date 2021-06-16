@@ -32,26 +32,19 @@ def strassen(hybrid, matrix_a, matrix_b):
 
 def split_matrix(n, matrix):
   half = int(n/2)
+  
+  A11 = [[matrix[l,c] for c in range(n) if c <  half] for l in range(n) if l <  half]
+  A12 = [[matrix[l,c] for c in range(n) if c >= half] for l in range(n) if l <  half]
+  A21 = [[matrix[l,c] for c in range(n) if c <  half] for l in range(n) if l >= half]
+  A22 = [[matrix[l,c] for c in range(n) if c >= half] for l in range(n) if l >= half]
 
-  A11 = matrix[0:half, 0:half]
-  A12 = matrix[0:half, half:n]
-  A21 = matrix[half:n, 0:half]
-  A22 = matrix[half:n, half:n]
-
-  return A11, A12, A21, A22
+  return np.array(A11), np.array(A12), np.array(A21), np.array(A22)
 
 def addMatrices(matrix_a, matrix_b):
   shape = matrix_a.shape
   n = shape[0]
 
-  matrix_c = []
-  
-  for l in range(0, n):
-    line = []
-    for c in range(0, n):
-      line.append(matrix_a[l, c] + matrix_b[l, c])
-
-    matrix_c.append(line)
+  matrix_c = [[matrix_a[l, c] + matrix_b[l, c] for c in range(n)] for l in range(n)]
 
   return np.array(matrix_c)
   
